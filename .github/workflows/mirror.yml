@@ -17,7 +17,8 @@ jobs:
       - name: Push to GitLab
         run: |
           git remote add gitlab https://$GITLAB_USERNAME:$GITLAB_TOKEN@gitlab.com/$GITLAB_USERNAME/${{ github.event.repository.name }}.git
-          git push --mirror gitlab
+          git push gitlab --all
+          git push gitlab --tags
         env:
           GITLAB_USERNAME: ${{ secrets.GITLAB_USERNAME }}
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
@@ -25,7 +26,8 @@ jobs:
       - name: Push to Bitbucket
         run: |
           git remote add bitbucket https://$BITBUCKET_USERNAME:$BITBUCKET_APP_PASSWORD@bitbucket.org/$BITBUCKET_USERNAME/${{ github.event.repository.name }}.git
-          git push --mirror bitbucket
+          git push bitbucket --all
+          git push bitbucket --tags
         env:
           BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
           BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}
