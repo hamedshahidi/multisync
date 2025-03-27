@@ -25,7 +25,7 @@ jobs:
 
       - name: Push to Bitbucket
         run: |
-          git remote add bitbucket https://$BITBUCKET_USERNAME:$BITBUCKET_APP_PASSWORD@bitbucket.org/$BITBUCKET_USERNAME/${{ github.event.repository.name }}.git
+          git remote add bitbucket https://$BITBUCKET_USERNAME:$BITBUCKET_APP_PASSWORD@bitbucket.org/hamed-shahidi/${{ github.event.repository.name }}.git
           git push bitbucket --all
           git push bitbucket --tags
         env:
